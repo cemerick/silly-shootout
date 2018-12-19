@@ -4,11 +4,7 @@
 (require racket/stream)
 
 (struct rectangle [lx by rx ty]
-  #:methods gen:custom-write
-  [(define write-proc
-     (make-constructor-style-printer
-      (λ [_] 'rectangle)
-      (λ [r] (as-list r))))])
+  #:transparent)
 
 (define (as-list r) (list (lx r) (by r) (rx r) (ty r)))
 
