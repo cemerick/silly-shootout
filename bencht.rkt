@@ -1,8 +1,5 @@
 #lang typed/racket
 
-(require racket/struct)
-(require racket/stream)
-
 (struct rectangle [[lx : Float] [by : Float] [rx : Float] [ty : Float]]
   #:transparent)
 
