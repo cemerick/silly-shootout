@@ -25,3 +25,5 @@ real    0m49.204s
 user    0m48.868s
 sys     0m0.376s
 ```
+
+The Haskell impl never finishes (perhaps because I'm an idiot).

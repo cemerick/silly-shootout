@@ -1,2 +1,8 @@
 compiled
+
 *.class
+
+*.hi
+*.o
+*~
+Bench
