@@ -13,6 +13,11 @@ function run {
   echo "${time}s"
 }
 
+printf "\n=== rust ===\n"
+rm -rf Bench
+rustc -O Bench.rs
+run 3 ./Bench
+
 printf "\n=== haskell ===\n"
 rm -f Bench *.hi *.o
 stack exec -- ghc -O Bench.hs > /dev/null
