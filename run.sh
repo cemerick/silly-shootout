@@ -1,34 +1,43 @@
 set -e
 
+export PATH=$PATH:~/bin/racket/bin
+
 function run {
-  /usr/bin/time -f "%es" "$@"
+  time=999999
+
+  for i in `seq 1 $1`;
+  do
+    nt=$(/usr/bin/time -f "%e" "${@:2}" 2>&1 > /dev/null)
+    time=`python -c "print min($time, $nt)"`
+  done
+  echo "${time}s"
 }
 
 printf "\n=== haskell ===\n"
 rm Bench *.hi *.o
 stack exec -- ghc -O Bench.hs
-run ./Bench
+run 3 ./Bench
 
 printf "\n=== node ===\n"
-run node bench.js
+run 3 node bench.js
 
 printf "\n=== java ===\n"
 rm -rf *.class
 javac Bench.java
-run java Bench
+run 3 java Bench
 
 printf "\n=== racket (classic) ===\n"
 rm -rf compiled
-~/bin/racket/bin/raco make bench.rkt
-run ~/bin/racket/bin/racket bench.rkt
+raco make bench.rkt
+run 2 racket bench.rkt
 
 printf "\n=== typed racket (classic) ===\n"
 rm -rf compiled
-~/bin/racket/bin/raco make bencht.rkt
-run ~/bin/racket/bin/racket bencht.rkt
+raco make bencht.rkt
+run 2 racket bencht.rkt
 
 printf "\n=== typed racket (classic, optimizer OFF) ===\n"
 rm -rf compiled
 export PLT_TR_NO_OPTIMIZE=n
-~/bin/racket/bin/raco make bencht.rkt
-run ~/bin/racket/bin/racket bencht.rkt
+raco make bencht.rkt
+run 2 racket bencht.rkt
