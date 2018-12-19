@@ -22,5 +22,5 @@
 
 (time
  (println (for/fold ([area (r 25 25 200 200)])
-                    ([i (in-range 1e9)])
+                    ([i (in-range 1000000000)])
             (values (union area (r 20 0 100 i))))))
