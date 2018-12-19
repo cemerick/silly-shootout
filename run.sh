@@ -14,8 +14,8 @@ function run {
 }
 
 printf "\n=== haskell ===\n"
-rm Bench *.hi *.o
-stack exec -- ghc -O Bench.hs
+rm -f Bench *.hi *.o
+stack exec -- ghc -O Bench.hs > /dev/null
 run 3 ./Bench
 
 printf "\n=== node ===\n"
