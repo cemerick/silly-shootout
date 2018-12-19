@@ -1,29 +1,34 @@
 None of this means anything. Take no conclusions.
 
-On my laptop:
+On my laptop, current rankings: haskell < node < java < racket
 
 ```
 ===java===
 Rectangle lx:20.0 by:0.0 rx:200.0 ty:1.0E9
 
-real    0m6.974s
-user    0m6.765s
-sys     0m0.328s
+real    0m6.715s
+user    0m6.506s
+sys     0m0.297s
 
 ===node===
 { lx: 20, by: 0, rx: 200, ty: 999999999 }
 
-real    0m5.655s
-user    0m5.837s
-sys     0m0.289s
+real    0m5.503s
+user    0m5.653s
+sys     0m0.213s
 
 ===racket classic===
 (rectangle 20 0 200 999999999)
-cpu time: 49024 real time: 48984 gc time: 805
+cpu time: 47905 real time: 47866 gc time: 787
 
-real    0m49.204s
-user    0m48.868s
-sys     0m0.376s
+real    0m48.095s
+user    0m47.673s
+sys     0m0.452s
+
+===haskell===
+Rectangle {lx = 20.0, by = 0.0, rx = 200.0, ty = 1.0e9}
+
+real    0m1.957s
+user    0m1.957s
+sys     0m0.000s
 ```
-
-The Haskell impl never finishes (perhaps because I'm an idiot).
