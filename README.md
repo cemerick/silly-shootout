@@ -1,28 +1,27 @@
 None of this means anything. Take no conclusions.
 
-On my laptop, current rankings:
-
-rust < haskell < node < java < racket < tracket < tracket (NO OPT)
+On my laptop:
 
 ```
 === rust ===
 1.87s
 
 === haskell ===
-1.94s
+1.97s
 
 === node ===
-5.4s
+5.66s
 
 === java ===
-6.81s
+7.09s
 
 === racket (classic) ===
-22.9s
-
-=== typed racket (classic) ===
-47.12s
+35.99s
 
 === typed racket (classic, optimizer OFF) ===
-37.1s
+37.86s
+
+=== typed racket (classic) ===
+38.06s
+
 ```
