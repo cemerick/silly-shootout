@@ -24,4 +24,6 @@ On my laptop:
 === typed racket (classic) ===
 38.06s
 
+=== node (generators) ===
+71.5s
 ```

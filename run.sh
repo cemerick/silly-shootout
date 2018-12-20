@@ -36,13 +36,16 @@ rm -rf compiled
 raco make bench.rkt
 run 2 racket bench.rkt
 
-printf "\n=== typed racket (classic) ===\n"
-rm -rf compiled
-raco make bencht.rkt
-run 2 racket bencht.rkt
-
 printf "\n=== typed racket (classic, optimizer OFF) ===\n"
 rm -rf compiled
 export PLT_TR_NO_OPTIMIZE=n
 raco make bencht.rkt
 run 2 racket bencht.rkt
+
+printf "\n=== typed racket (classic) ===\n"
+rm -rf compiled
+raco make bencht.rkt
+run 2 racket bencht.rkt
+
+printf "\n=== node (generators) ===\n"
+run 2 node bench-lazy.js
