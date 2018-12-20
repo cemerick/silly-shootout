@@ -13,7 +13,7 @@ On my laptop:
 5.66s
 
 === java ===
-7.09s
+6.15s
 
 === racket (classic) ===
 35.99s
