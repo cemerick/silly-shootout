@@ -13,7 +13,7 @@ fn r (lx: f64, by: f64, rx: f64, ty: f64) -> Rectangle {
 
 fn union (a : Rectangle, b: Rectangle) -> Rectangle {
     Rectangle{lx: a.lx.min(b.lx),
-              by: a.by.max(b.by),
+              by: a.by.min(b.by),
               rx: a.rx.max(b.rx),
               ty: a.ty.max(b.ty)}
 }
