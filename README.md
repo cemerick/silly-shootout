@@ -4,16 +4,16 @@ On my laptop:
 
 ```
 === rust ===
-1.87s
+1.88s
 
 === haskell ===
-1.97s
+1.98s
 
 === node ===
-5.66s
+5.54s
 
 === java ===
-6.15s
+6.43s
 
 === racket (classic) ===
 35.99s
@@ -23,6 +23,15 @@ On my laptop:
 
 === typed racket (classic) ===
 38.06s
+
+=== racket (chez) ===
+45.47s
+
+=== typed racket (chez) ===
+43.07s
+
+=== typed racket (chez, optimizer OFF) ===
+49.75s
 
 === node (generators) ===
 71.5s

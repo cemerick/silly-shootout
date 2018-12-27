@@ -1,6 +1,6 @@
 set -e
 
-export PATH=$PATH:~/bin/racket/bin
+export PATH="$PATH:~/bin/racket/bin:../racket/racket/bin"
 
 function run {
   time=999999
@@ -36,16 +36,33 @@ rm -rf compiled
 raco make bench.rkt
 run 2 racket bench.rkt
 
+printf "\n=== racket (chez) ===\n"
+rm -rf compiled
+racocs make bench.rkt
+run 2 racketcs bench.rkt
+
+printf "\n=== typed racket (classic) ===\n"
+rm -rf compiled
+raco make bencht.rkt
+run 2 racket bencht.rkt
+
+printf "\n=== typed racket (chez) ===\n"
+rm -rf compiled
+unset PLT_TR_NO_OPTIMIZE
+racocs make bencht.rkt
+run 2 racketcs bencht.rkt
+
 printf "\n=== typed racket (classic, optimizer OFF) ===\n"
 rm -rf compiled
 export PLT_TR_NO_OPTIMIZE=n
 raco make bencht.rkt
 run 2 racket bencht.rkt
 
-printf "\n=== typed racket (classic) ===\n"
+printf "\n=== typed racket (chez, optimizer OFF) ===\n"
 rm -rf compiled
-raco make bencht.rkt
-run 2 racket bencht.rkt
+export PLT_TR_NO_OPTIMIZE=n
+racocs make bencht.rkt
+run 2 racketcs bencht.rkt
 
 printf "\n=== node (generators) ===\n"
 run 2 node bench-lazy.js
