@@ -37,6 +37,15 @@ On my laptop:
 71.5s
 ```
 
+Runtime/language versions:
+
+* Rust 1.31.0
+* GHC 8.4.3
+* Node 10.13.0
+* OpenJDK 11.0.1
+* Racket v7.1
+* Racket-on-Chez v7.1.0.10 (git sha 8ce8058796)
+
 ### Motivation
 
 With a new-ish project with some new-ish requirements, I thought it would be
