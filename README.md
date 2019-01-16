@@ -16,7 +16,7 @@ On my laptop:
 6.43s
 
 === bucklescript (reason) ===
-9.23s
+9.5s
 
 === Clojure ===
 13.84s
@@ -33,6 +33,9 @@ On my laptop:
 === typed racket (classic) ===
 38.06s
 
+=== js_of_ocaml ===
+40.53s
+
 === racket (chez) ===
 45.47s
 
@@ -41,9 +44,6 @@ On my laptop:
 
 === typed racket (chez, optimizer OFF) ===
 49.75s
-
-=== js_of_ocaml ===
-57.49s
 
 === node (generators) ===
 71.5s

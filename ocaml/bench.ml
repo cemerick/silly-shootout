@@ -8,6 +8,9 @@ module Rectangle = struct
 
   let r lx by rx ty = {lx = lx; by = by; rx = rx; ty = ty}
 
+  let min (a: float) (b: float) : float = if a < b then a else b
+  let max (a: float) (b: float) : float = if a > b then a else b
+
   let union {lx = alx; by = aby; rx = arx; ty = aty}
             {lx = blx; by = bby; rx = brx; ty = bty} =
     r (min alx blx)

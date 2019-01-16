@@ -16,26 +16,26 @@ function run {
 printf "\n=== rust ===\n"
 rm -rf Bench
 rustc -O Bench.rs
-run 3 ./Bench
+run 5 ./Bench
 
 printf "\n=== haskell ===\n"
 rm -f Bench *.hi *.o
 stack exec -- ghc -O Bench.hs > /dev/null
-run 3 ./Bench
+run 5 ./Bench
 
 printf "\n=== node ===\n"
-run 3 node bench.js
+run 4 node bench.js
 
 printf "\n=== java ===\n"
 rm -rf *.class
 javac Bench.java
-run 3 java Bench
+run 4 java Bench
 
 printf "\n=== bucklescript (reason) ===\n"
 cd ocaml
 rm -f *.cm* *.js* *.out
 bsc bench.ml
-run 3 node bench.js
+run 4 node bench.js
 cd ..
 
 printf "\n=== Clojure ===\n"
@@ -50,7 +50,7 @@ printf "\n=== ClojureScript ===\n"
 cd cljs
 rm -rf out
 clj -m cljs.main -co '{:warnings {:single-segment-namespace false}}' --target node --optimizations advanced -c bench
-run 3 node out/main.js
+run 2 node out/main.js
 cd ..
 
 printf "\n=== racket (chez) ===\n"
@@ -62,6 +62,13 @@ printf "\n=== typed racket (classic) ===\n"
 rm -rf compiled
 raco make bencht.rkt
 run 2 racket bencht.rkt
+
+printf "\n=== js_of_ocaml ===\n"
+cd ocaml
+rm -f *.cm* *.js* *.out
+ocamlc bench.ml && js_of_ocaml --opt=3 a.out
+run 2 node a.js
+cd ..
 
 printf "\n=== typed racket (chez) ===\n"
 rm -rf compiled
@@ -80,13 +87,6 @@ rm -rf compiled
 export PLT_TR_NO_OPTIMIZE=n
 racocs make bencht.rkt
 run 2 racketcs bencht.rkt
-
-printf "\n=== js_of_ocaml ===\n"
-cd ocaml
-rm -f *.cm* *.js* *.out
-ocamlc bench.ml && js_of_ocaml --opt=3 a.out
-run 3 node a.js
-cd ..
 
 printf "\n=== node (generators) ===\n"
 run 2 node bench-lazy.js
