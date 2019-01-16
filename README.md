@@ -15,6 +15,9 @@ On my laptop:
 === java ===
 6.43s
 
+=== bucklescript (reason) ===
+9.23s
+
 === racket (classic) ===
 35.99s
 
@@ -32,6 +35,9 @@ On my laptop:
 
 === typed racket (chez, optimizer OFF) ===
 49.75s
+
+=== js_of_ocaml ===
+57.49s
 
 === node (generators) ===
 71.5s

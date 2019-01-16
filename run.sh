@@ -31,6 +31,12 @@ rm -rf *.class
 javac Bench.java
 run 3 java Bench
 
+cd ocaml
+rm -f *.cm* *.js* *.out
+printf "\n=== bucklescript (reason) ===\n"
+bsc bench.ml
+run 3 node bench.js
+
 printf "\n=== racket (classic) ===\n"
 rm -rf compiled
 raco make bench.rkt
@@ -63,6 +69,12 @@ rm -rf compiled
 export PLT_TR_NO_OPTIMIZE=n
 racocs make bencht.rkt
 run 2 racketcs bencht.rkt
+
+printf "\n=== js_of_ocaml ===\n"
+rm -f *.cm* *.js* *.out
+ocamlc bench.ml && js_of_ocaml --opt=3 a.out
+run 3 node a.js
+cd ..
 
 printf "\n=== node (generators) ===\n"
 run 2 node bench-lazy.js

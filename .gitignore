@@ -6,3 +6,8 @@ compiled
 *.o
 *~
 Bench
+bench.cm*
+a.js
+a.out
+node_modules
+package-lock.json
