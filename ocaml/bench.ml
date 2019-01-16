@@ -22,7 +22,17 @@ end;;
 open Rectangle
 
 let lim = 1000000000
+
+(* Usage of @@ or |> __when declaring the ref binding__
+   results in a 3x slowdown for JSOO, 20% for ocamlopt!!
 let _ = let rect = ref @@ r 25. 25. 200. 200. in
+        for i = 0 to lim do
+          rect := union !rect @@ r 20. 0. 100. (float_of_int i)
+        done;
+        print_endline @@ string_of_float @@ !rect.ty
+*)
+
+let _ = let rect = ref (r 25. 25. 200. 200.) in
         for i = 0 to lim do
           rect := union !rect @@ r 20. 0. 100. (float_of_int i)
         done;

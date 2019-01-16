@@ -23,15 +23,15 @@ rm -f Bench *.hi *.o
 stack exec -- ghc -O Bench.hs > /dev/null
 run 5 ./Bench
 
-printf "\n=== node ===\n"
-run 4 node bench.js
-
 printf "\n=== ocaml (\`ocamlopt.opt -O3\`, +fp+flambda) ===\n"
 cd ocaml
 rm -f *.cm* *.js* *.out *.o
 ocamlopt.opt -O3 bench.ml
-run 5 ./a.out
+run 4 ./a.out
 cd ..
+
+printf "\n=== node ===\n"
+run 4 node bench.js
 
 printf "\n=== java ===\n"
 rm -rf *.class
@@ -42,7 +42,14 @@ printf "\n=== bucklescript (reason) ===\n"
 cd ocaml
 rm -f *.cm* *.js* *.out
 bsc bench.ml
-run 4 node bench.js
+run 3 node bench.js
+cd ..
+
+printf "\n=== js_of_ocaml ===\n"
+cd ocaml
+rm -f *.cm* *.js* *.out
+ocamlc bench.ml && js_of_ocaml --opt=3 a.out
+run 2 node a.js
 cd ..
 
 printf "\n=== Clojure ===\n"
@@ -69,13 +76,6 @@ printf "\n=== typed racket (classic) ===\n"
 rm -rf compiled
 raco make bencht.rkt
 run 2 racket bencht.rkt
-
-printf "\n=== js_of_ocaml ===\n"
-cd ocaml
-rm -f *.cm* *.js* *.out
-ocamlc bench.ml && js_of_ocaml --opt=3 a.out
-run 2 node a.js
-cd ..
 
 printf "\n=== typed racket (chez) ===\n"
 rm -rf compiled

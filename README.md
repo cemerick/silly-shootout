@@ -9,17 +9,20 @@ On my laptop:
 === haskell ===
 1.98s
 
+=== ocaml (`ocamlopt.opt -O3` +fp+flambda) ===
+5.15s
+
 === node ===
 5.54s
-
-=== ocaml (`ocamlopt.opt -O3` +fp+flambda) ===
-6.32s
 
 === java ===
 6.43s
 
 === bucklescript (reason) ===
-9.5s
+9.98s
+
+=== js_of_ocaml ===
+12.90s
 
 === Clojure ===
 13.84s
@@ -35,9 +38,6 @@ On my laptop:
 
 === typed racket (classic) ===
 38.06s
-
-=== js_of_ocaml ===
-40.53s
 
 === racket (chez) ===
 45.47s
