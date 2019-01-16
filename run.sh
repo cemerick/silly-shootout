@@ -26,6 +26,13 @@ run 5 ./Bench
 printf "\n=== node ===\n"
 run 4 node bench.js
 
+printf "\n=== ocaml (\`ocamlopt.opt -O3\`, +fp+flambda) ===\n"
+cd ocaml
+rm -f *.cm* *.js* *.out *.o
+ocamlopt.opt -O3 bench.ml
+run 5 ./a.out
+cd ..
+
 printf "\n=== java ===\n"
 rm -rf *.class
 javac Bench.java

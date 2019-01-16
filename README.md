@@ -12,6 +12,9 @@ On my laptop:
 === node ===
 5.54s
 
+=== ocaml (`ocamlopt.opt -O3` +fp+flambda) ===
+6.32s
+
 === java ===
 6.43s
 
