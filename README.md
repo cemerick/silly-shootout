@@ -18,8 +18,14 @@ On my laptop:
 === bucklescript (reason) ===
 9.23s
 
+=== Clojure ===
+13.84s
+
 === racket (classic) ===
 35.99s
+
+=== ClojureScript ===
+36.63s
 
 === typed racket (classic, optimizer OFF) ===
 37.86s

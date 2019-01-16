@@ -31,16 +31,27 @@ rm -rf *.class
 javac Bench.java
 run 3 java Bench
 
+printf "\n=== bucklescript (reason) ===\n"
 cd ocaml
 rm -f *.cm* *.js* *.out
-printf "\n=== bucklescript (reason) ===\n"
 bsc bench.ml
 run 3 node bench.js
+cd ..
+
+printf "\n=== Clojure ===\n"
+run 3 clj -J-server cljs/src/bench.cljs
 
 printf "\n=== racket (classic) ===\n"
 rm -rf compiled
 raco make bench.rkt
 run 2 racket bench.rkt
+
+printf "\n=== ClojureScript ===\n"
+cd cljs
+rm -rf out
+clj -m cljs.main -co '{:warnings {:single-segment-namespace false}}' --target node --optimizations advanced -c bench
+run 3 node out/main.js
+cd ..
 
 printf "\n=== racket (chez) ===\n"
 rm -rf compiled
@@ -71,6 +82,7 @@ racocs make bencht.rkt
 run 2 racketcs bencht.rkt
 
 printf "\n=== js_of_ocaml ===\n"
+cd ocaml
 rm -f *.cm* *.js* *.out
 ocamlc bench.ml && js_of_ocaml --opt=3 a.out
 run 3 node a.js
