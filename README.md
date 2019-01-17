@@ -10,7 +10,7 @@ On my laptop:
 1.98s
 
 === ocaml (`ocamlopt.opt -O3` +fp+flambda) ===
-5.15s
+2.93s
 
 === node ===
 5.54s
@@ -19,10 +19,10 @@ On my laptop:
 6.43s
 
 === bucklescript (reason) ===
-9.98s
+9.52s
 
 === js_of_ocaml ===
-12.90s
+12.07s
 
 === Clojure ===
 13.84s
