@@ -13,6 +13,11 @@ function run {
   echo "${time}s"
 }
 
+printf "\n=== c++ ===\n"
+rm -rf a.out
+g++ -O3 -march=native bench.cpp
+run 5 ./a.out
+
 printf "\n=== rust ===\n"
 rm -rf Bench
 rustc -O Bench.rs
