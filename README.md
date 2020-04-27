@@ -30,6 +30,9 @@ On my laptop:
 === Clojure ===
 13.84s
 
+=== gerbil (via gambit) ===
+15.87s
+
 === racket (classic) ===
 35.99s
 
@@ -60,6 +63,7 @@ Runtime/language versions:
 * g++ 7.5.0
 * Rust 1.31.0
 * GHC 8.4.3
+* Gerbil v0.16-DEV-555-ga1e5f5ee on Gambit v4.9.3
 * Node 10.13.0
 * OpenJDK 11.0.1
 * Racket v7.1

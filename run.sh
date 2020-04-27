@@ -60,6 +60,11 @@ cd ..
 printf "\n=== Clojure ===\n"
 run 3 clj -J-server cljs/src/bench.cljs
 
+printf "\n=== gerbil (via gambit) ===\n"
+rm -rf a.out
+gxc -O -o a.out -exe bench.ss
+run 3 ./a.out
+
 printf "\n=== racket (classic) ===\n"
 rm -rf compiled
 raco make bench.rkt
