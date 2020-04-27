@@ -8,7 +8,7 @@ function run {
   for i in `seq 1 $1`;
   do
     nt=$(/usr/bin/time -f "%e" "${@:2}" 2>&1 > /dev/null)
-    time=`python -c "print min($time, $nt)"`
+    time=`python2 -c "print min($time, $nt)"`
   done
   echo "${time}s"
 }
