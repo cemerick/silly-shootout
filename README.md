@@ -3,6 +3,9 @@ None of this means anything. Take no conclusions. Read below if you're asking, "
 On my laptop:
 
 ```
+=== c++ ===
+1.12s
+
 === rust ===
 1.88s
 
@@ -54,6 +57,7 @@ On my laptop:
 
 Runtime/language versions:
 
+* g++ 7.5.0
 * Rust 1.31.0
 * GHC 8.4.3
 * Node 10.13.0
