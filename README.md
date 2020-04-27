@@ -84,6 +84,10 @@ them. The results so far are the programs herein, and the results above.
 These programs all do the same thing, which is intended to barely reflect the
 kind of workload I'm anticipating.
 
+_Update_, 2020-ish: I made my decision (at least for a while) last year, but
+people keep golfing these implementations and offering new ones. Feel free to
+do the same.
+
 ### Why these languages / runtimes?
 
 I intend to continue using tools that emphasize functional programming
